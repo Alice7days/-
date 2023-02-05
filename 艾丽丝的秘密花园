@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void game()
+{
+	int Alice = 0;
+	int ret = 0;
+	printf("开始猜字谜\n");
+	ret = rand();
+	printf("%d\n",ret);
+	while(Alice!=ret)
+	{
+		scanf("%d",&Alice);
+			if(Alice>ret)
+		{
+			printf("猜大了\n");
+			
+		}
+		else if(Alice<ret)
+		{
+			printf("猜小了\n");
+			
+		}
+	}
+	if(Alice==ret)
+		printf("O泡时间到\n"); 
+}
+void menu()
+{
+	printf("************************");
+	printf("******1.play, 0.exit****");
+	printf("************************\n");
+}
+int main()
+{
+	srand((unsigned int)time(NULL));
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请输入：");
+		scanf("%d",&input); 
+		switch(input)
+		{
+			case 0:
+				printf("退出游戏\n"); 
+				break;
+			case 1:
+				game();
+				break;
+			default:
+				printf("请认真一点好吗，叫你输入1或者0 布塔雅罗！\n"); 
+				break;		
+		}
+	}while(input);
+	return 0;
+}
